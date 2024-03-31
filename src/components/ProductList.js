@@ -3,9 +3,9 @@ import ProductDetail from "./ProductDetail"
 
 function ProductList({ addProductToCart, incrementQuantityInCart, decrementQuantityInCart, getCartProduct }) {
     const products = [
-        { id: 1, name: "Baby Diaper", price: "300 INR" },
-        { id: 2, name: "Baby Talcom Powder", price: "200 INR" },
-        { id: 3, name: "Baby Milk Powder", price: "150 INR" },
+        { id: 1, name: "Baby Diaper", price: "300", currency: "INR" },
+        { id: 2, name: "Baby Talcom Powder", price: "200", currency: "INR" },
+        { id: 3, name: "Baby Milk Powder", price: "150", currency: "INR" },
     ]
 
     return (

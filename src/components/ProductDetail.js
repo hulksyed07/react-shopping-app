@@ -16,8 +16,9 @@ function ProductDetail({ id, name, price, addProductToCart, incrementQuantityInC
     if (!!cartProduct(id)){
       cartActionButtons = (
         <>
-          <button onClick={handleIncrementQuantityInCart}>+1</button>
-          <button onClick={handleDecrementQuantityInCart}>-1</button>
+          <button onClick={handleDecrementQuantityInCart}>-</button>
+          <span>{cartProduct(id).quantity}</span>
+          <button onClick={handleIncrementQuantityInCart}>+</button>
         </>
       )
     }

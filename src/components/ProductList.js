@@ -1,7 +1,7 @@
 import { useState } from "react"
 import ProductDetail from "./ProductDetail"
 
-function ProductList() {
+function ProductList({ addProductToCart, incrementQuantityInCart, decrementQuantityInCart, getCartProduct }) {
     const products = [
         { id: 1, name: "Baby Diaper", price: "300 INR" },
         { id: 2, name: "Baby Talcom Powder", price: "200 INR" },
@@ -13,7 +13,11 @@ function ProductList() {
             {products.map((product) => {
                 return <ProductDetail
                     key={product.id}
-                    {...product} />
+                    {...product}
+                    addProductToCart={addProductToCart}
+                    incrementQuantityInCart={incrementQuantityInCart}
+                    decrementQuantityInCart={decrementQuantityInCart}
+                    getCartProduct={getCartProduct} />
             })}
         </>
     )

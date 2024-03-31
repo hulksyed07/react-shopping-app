@@ -1,8 +1,4 @@
-import useCart from "../hooks/useCart";
-
-function ProductDetail({ id, name, price }) {
-    const { addProductToCart, incrementQuantityInCart, decrementQuantityInCart, getCartProduct } = useCart();
-
+function ProductDetail({ id, name, price, addProductToCart, incrementQuantityInCart, decrementQuantityInCart, getCartProduct }) {
     const handleAddToCart = () => {
         addProductToCart({ id, name, price });
     };

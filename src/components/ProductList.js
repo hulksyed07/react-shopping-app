@@ -10,7 +10,7 @@ function ProductList() {
     return (
         <>
             {products.map((product) => {
-                return <ProductDetail key={product.name} name={product.name} price={product.price} />
+                return <ProductDetail key={product.name} {...product} />
             })}
         </>
     )

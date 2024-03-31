@@ -1,6 +1,9 @@
-function ProductDetail({ name }) {
+function ProductDetail({ name, price }) {
     return (
-        <p>{name}</p>
+        <>
+          <h3>{name}</h3>
+          <p>Price: {price}</p>
+        </>
     )
 }
 

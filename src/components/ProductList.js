@@ -1,11 +1,17 @@
 import ProductDetail from "./ProductDetail"
 
 function ProductList() {
+    const products = [
+        { name: "Product 1" },
+        { name: "Product 2" },
+        { name: "Product 3" },
+    ]
+
     return (
         <>
-            <ProductDetail name="Product 1"/>
-            <ProductDetail name="Product 2"/>
-            <ProductDetail name="Product 3"/>
+            {products.map((product) => {
+                return <ProductDetail key={product.name} name={product.name} />
+            })}
         </>
     )
 }

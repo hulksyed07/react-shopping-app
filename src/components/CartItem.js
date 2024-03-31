@@ -1,4 +1,8 @@
-function CartItem({ id, name, price, currency, quantity, incrementQuantityInCart, decrementQuantityInCart }){
+import { useCartContext } from "../contexts/CartContext";
+
+function CartItem({ id, name, price, currency, quantity }){
+    const { incrementQuantityInCart, decrementQuantityInCart } = useCartContext();
+
     const handleIncrementQuantityInCart = () => {
         incrementQuantityInCart({ id, name, price });
     };

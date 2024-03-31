@@ -12,8 +12,25 @@ function ProductList() {
 
     console.log(cartProducts)
 
-    const addProductToCart = (product) => {
-        setCartProducts((currentCartProducts) => [...currentCartProducts, product.id])
+    const addProductToCart = (selectedProduct) => {
+        if (cartProducts.some(product => product.id === selectedProduct.id )){
+            return incrementQuantityInCart(selectedProduct)
+        }
+
+        setCartProducts((currentCartProducts) => {
+            return [...currentCartProducts, {...selectedProduct, quantity: 1}]    
+        })
+    }
+
+    const incrementQuantityInCart = (selectedProduct) => {
+        var updatedCartProducts = [...cartProducts]
+        var cartProduct = updatedCartProducts.find(product => product.id === selectedProduct.id)
+        if (!cartProduct){
+            return addProductToCart(selectedProduct);
+        }
+
+        cartProduct.quantity += 1
+        setCartProducts(updatedCartProducts)
     }
 
     return (

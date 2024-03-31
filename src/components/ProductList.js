@@ -33,10 +33,31 @@ function ProductList() {
         setCartProducts(updatedCartProducts)
     }
 
+    const decrementQuantityInCart = (selectedProduct) => {
+        var updatedCartProducts = [...cartProducts]
+        var cartProduct = updatedCartProducts.find(product => product.id === selectedProduct.id)
+        if (!cartProduct){
+            return addProductToCart(selectedProduct);
+        }
+
+        cartProduct.quantity -= 1
+        setCartProducts(updatedCartProducts)
+    }
+
+    const cartProduct = (selectedProductId) => {
+        return cartProducts.find(product => product.id === selectedProductId)
+    }
+
     return (
         <>
             {products.map((product) => {
-                return <ProductDetail key={product.id} addProductToCart={addProductToCart} {...product} />
+                return <ProductDetail
+                    key={product.id}
+                    addProductToCart={addProductToCart}
+                    incrementQuantityInCart={incrementQuantityInCart}
+                    decrementQuantityInCart={decrementQuantityInCart}
+                    cartProduct={cartProduct}
+                    {...product} />
             })}
         </>
     )

@@ -21,7 +21,7 @@ function App() {
 
         <Routes>
           <Route path="/" element={<ProductList addProductToCart={addProductToCart} incrementQuantityInCart={incrementQuantityInCart} decrementQuantityInCart={decrementQuantityInCart} getCartProduct={getCartProduct} />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route path="/cart" element={<Cart cartProducts={cartProducts} />} />
         </Routes>
       </div>
     </Router>

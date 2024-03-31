@@ -14,7 +14,12 @@ function ProductDetail({ id, name, price, addProductToCart, incrementQuantityInC
     let cartActionButtons = <button onClick={handleAddToCart}>Add to Cart</button>
 
     if (!!cartProduct(id)){
-      cartActionButtons = <><button onClick={handleIncrementQuantityInCart}>+1</button><button onClick={handleDecrementQuantityInCart}>-1</button></>
+      cartActionButtons = (
+        <>
+          <button onClick={handleIncrementQuantityInCart}>+1</button>
+          <button onClick={handleDecrementQuantityInCart}>-1</button>
+        </>
+      )
     }
 
     return (

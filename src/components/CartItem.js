@@ -1,7 +1,20 @@
-function CartItem({ name, price, quantity }){
+function CartItem({ id, name, price, quantity, incrementQuantityInCart, decrementQuantityInCart }){
+    const handleIncrementQuantityInCart = () => {
+        incrementQuantityInCart({ id, name, price });
+    };
+
+    const handleDecrementQuantityInCart = () => {
+        decrementQuantityInCart({ id, name, price });
+    };
+
     return (
         <>
-            <p>{name} = {price} x {quantity}</p>
+            <p>
+                <span>{name} Price: {price}</span>
+                <button onClick={handleDecrementQuantityInCart}>-</button>
+                <span>{quantity}</span>
+                <button onClick={handleIncrementQuantityInCart}>+</button>
+            </p>
         </>
     )
 }

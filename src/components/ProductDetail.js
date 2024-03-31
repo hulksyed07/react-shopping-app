@@ -1,4 +1,8 @@
-function ProductDetail({ id, name, price, addProductToCart, incrementQuantityInCart, decrementQuantityInCart, cartProduct }) {
+import useCart from "../hooks/useCart";
+
+function ProductDetail({ id, name, price }) {
+    const { addProductToCart, incrementQuantityInCart, decrementQuantityInCart, getCartProduct } = useCart();
+
     const handleAddToCart = () => {
         addProductToCart({ id, name, price });
     };
@@ -13,11 +17,11 @@ function ProductDetail({ id, name, price, addProductToCart, incrementQuantityInC
 
     let cartActionButtons = <button onClick={handleAddToCart}>Add to Cart</button>
 
-    if (!!cartProduct(id)){
+    if (!!getCartProduct(id)){
       cartActionButtons = (
         <>
           <button onClick={handleDecrementQuantityInCart}>-</button>
-          <span>{cartProduct(id).quantity}</span>
+          <span>{getCartProduct(id).quantity}</span>
           <button onClick={handleIncrementQuantityInCart}>+</button>
         </>
       )

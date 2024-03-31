@@ -1,9 +1,11 @@
+import ProductDetail from "./ProductDetail"
+
 function ProductList() {
     return (
         <>
-            <p>Product 1</p>
-            <p>Product 2</p>
-            <p>Product 3</p>
+            <ProductDetail name="Product 1"/>
+            <ProductDetail name="Product 2"/>
+            <ProductDetail name="Product 3"/>
         </>
     )
 }

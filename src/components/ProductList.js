@@ -22,9 +22,20 @@ function ProductList() {
         })
     }
 
+    const removeProductFromCart = (selectedProduct) => {
+        let updatedCartProducts = [...cartProducts]
+        const indexToRemove = updatedCartProducts.findIndex(product => product.id === selectedProduct.id);
+
+        if (indexToRemove !== -1) {
+            updatedCartProducts.splice(indexToRemove, 1);
+        }
+
+        setCartProducts(updatedCartProducts)
+    }
+
     const incrementQuantityInCart = (selectedProduct) => {
-        var updatedCartProducts = [...cartProducts]
-        var cartProduct = updatedCartProducts.find(product => product.id === selectedProduct.id)
+        let updatedCartProducts = [...cartProducts]
+        let cartProduct = updatedCartProducts.find(product => product.id === selectedProduct.id)
         if (!cartProduct){
             return addProductToCart(selectedProduct);
         }
@@ -34,10 +45,14 @@ function ProductList() {
     }
 
     const decrementQuantityInCart = (selectedProduct) => {
-        var updatedCartProducts = [...cartProducts]
-        var cartProduct = updatedCartProducts.find(product => product.id === selectedProduct.id)
+        let updatedCartProducts = [...cartProducts]
+        let cartProduct = updatedCartProducts.find(product => product.id === selectedProduct.id)
         if (!cartProduct){
-            return addProductToCart(selectedProduct);
+            return
+        }
+
+        if (cartProduct.quantity == 1){
+            return removeProductFromCart(selectedProduct)
         }
 
         cartProduct.quantity -= 1
